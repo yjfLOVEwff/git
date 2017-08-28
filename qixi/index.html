@@ -134,24 +134,18 @@
             wz(item,ji);
         }
     })
-function autoPlayAudio() {
-       wx.config({
-           // 配置信息, 即使不正确也能使用 wx.ready
-           debug: false,
-           appId: '',
-           timestamp: 1,
-           nonceStr: '',
-           signature: '',
-           jsApiList: []
-       });
-       wx.ready(function() {
-           document.querySelector('audio').play();
-       });
-   }
+function audioAutoPlay(id){
+    var audio = document.getElementById(id);
+    audio.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+    }, false);
+}
+audioAutoPlay(‘Jaudio‘);
 </script> 
-<audio loop="loop">
-       <source  src="http://play.baidu.com/?__m=mboxCtrl.playSong&__a=213984&__o=song/213984||playBtn&fr=altg_new3||www.baidu.com#">
-</audio>
+    
+    
+<audio id="Jaudio" class="media-audio" src="http://play.baidu.com/?__m=mboxCtrl.playSong&__a=213984&__o=song/213984||playBtn&fr=altg_new3||www.baidu.com#" preload loop="loop"></audio >
 </body>
 </html>
 
