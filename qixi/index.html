@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <title>Document</title>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="js/base.js"></script>
 <link rel="stylesheet" type="text/css" href="css/mobile-reset.css">
 <link rel="stylesheet" href="css/swiper-3.3.1.min.css">
@@ -14,7 +15,6 @@
 <script src="js/swiper.animate1.0.2.min.js"></script>
 </head>
 <body>
-
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <div class="swiper-slide page">
@@ -134,7 +134,26 @@
             wz(item,ji);
         }
     })
+function autoPlayAudio() {
+       wx.config({
+           // 配置信息, 即使不正确也能使用 wx.ready
+           debug: false,
+           appId: '',
+           timestamp: 1,
+           nonceStr: '',
+           signature: '',
+           jsApiList: []
+       });
+       wx.ready(function() {
+           document.querySelector('audio').play();
+       });
+   }
 </script> 
-    <embed src="http://play.baidu.com/?__m=mboxCtrl.playSong&__a=213984&__o=song/213984||playBtn&fr=altg_new3||www.baidu.com#" width=2000 height=1 type=audio/mpeg loop="true" >
+<audio loop="loop">
+       <source  src="http://play.baidu.com/?__m=mboxCtrl.playSong&__a=213984&__o=song/213984||playBtn&fr=altg_new3||www.baidu.com#">
+</audio>
+</body>
+</html>
+
 </body>
 </html>
